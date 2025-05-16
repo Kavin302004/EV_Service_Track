@@ -1,0 +1,1110 @@
+/*
+ * Author       : swordrevan5
+ * Generated on : 17-May-2025 00:37:44
+ * Version      : 1.0
+ */
+ application "EV_Service_Tracker"
+ {
+ 	date format = "dd-MMM-yyyy"
+ 	time zone = "Asia/Kolkata"
+ 	time format = "24-hr"
+ 	forms
+	{
+		form Inventory
+		{
+			success message = "Inventory Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Part_Name
+			(
+    			type = text
+				displayname = "Part Name"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Quantity
+			(
+				type = number
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Recorder_Level
+			(
+				type = number
+				displayname = "Recorder Level"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Maintenance_Log
+		{
+			success message = "Data Added Successfully!"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Vehicle_Registration
+			(
+				type = picklist	
+				values  = Vehicle_Registration.ID
+    			displayformat = [Registration_number]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Maintenance_Date
+			(
+    			type = date
+				displayname = "Maintenance Date"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Notes
+			(
+    			type = textarea
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Next_Due_Date
+			(
+    			type = date
+				displayname = "Next Due Date"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Service_Request
+		{
+			success message = "Data Added Successfully!"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			Vehicle_Registration
+			(
+				type = picklist	
+				values  = Vehicle_Registration.ID
+    			displayformat = [Registration_number]
+				sortorder = ascending
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Complaint_Description
+			(
+    			type = textarea
+				displayname = "Complaint Description"
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Service_Status
+			(
+				type = picklist
+				displayname = "Service Status"
+				maxchar = 100
+				values = {"Open","In progress","Completed"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Request_Date
+			(
+    			type = date
+				displayname = "Request Date"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Assigned_Technician
+			(
+				type = picklist
+				displayname = "Assigned Technician"
+				maxchar = 100
+				values = {"Technician A","Technician B"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Vehicle_Registration
+		{
+			success message = "Data Added Successfully!"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			must have Name
+			(
+    			type = name
+     			prefix
+     			(
+	     			 type = prefix
+	     			 displayname ="Prefix"
+	     			 visibility = false
+	     			 value = {"Mr.","Mrs.","Ms."}
+     			) 
+     			first_name
+     			(
+	     			 type = first_name
+	     			 displayname ="First Name"
+     			) 
+     			last_name
+     			(
+	     			 type = last_name
+	     			 displayname ="Last Name"
+     			) 
+     			suffix
+     			(
+	     			 type = suffix
+	     			 displayname ="Suffix"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			must have unique Phone_Number
+			(
+    			type = phonenumber
+				displayname = "Phone"
+    			defaultcountry="in"
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			must have unique Email
+			(
+    			type = email
+				maxchar = 80
+	 			row = 1
+	 			column = 1   
+				width = medium
+				personal data = true
+			)
+			EV_Model
+			(
+				type = picklist
+				displayname = "EV Model"
+				maxchar = 100
+				values = {"Ola S1","Ather 450x","TVS iQube","Hero Vida"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Battery_Type
+			(
+				type = picklist
+				displayname = "Battery Type"
+				maxchar = 100
+				values = {"Li-ion","Lead-Acid","Solid State"}
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			unique Registration_number
+			(
+    			type = text
+				displayname = "Registration number"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			Purchase_Date
+			(
+    			type = date
+				displayname = "Purchase Date"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+	}
+	reports
+	{
+		default list Vehicle_Registration_Report
+		{
+			displayName = "Vehicle_Registration Report"
+			show all rows from Vehicle_Registration    
+			(
+				Name 
+	 			(
+	      			displayformat = [first_name+""+prefix+""+last_name+""+suffix]
+	 			)
+				Email
+				Phone_Number as "Phone"
+				(
+					displayformat = plainnumber 
+					linktodial = enable
+				)
+				EV_Model as "EV Model"
+				Battery_Type as "Battery Type"
+				Registration_number as "Registration number"
+				Purchase_Date as "Purchase Date"
+			)
+		}
+		default list Service_Request_Report
+		{
+			displayName = "Service_Request Report"
+			show all rows from Service_Request    
+			(
+				Vehicle_Registration
+				Complaint_Description as "Complaint Description"
+				Service_Status as "Service Status"
+				Request_Date as "Request Date"
+				Assigned_Technician as "Assigned Technician"
+			)
+		}
+		default list Maintenance_Log_Report
+		{
+			displayName = "Maintenance_Log Report"
+			show all rows from Maintenance_Log    
+			(
+				Vehicle_Registration
+				Maintenance_Date as "Maintenance Date"
+				Notes
+				Next_Due_Date as "Next Due Date"
+			)
+		}
+		default list All_Inventories
+		{
+			displayName = "All Inventories"
+			show all rows from Inventory    
+			(
+				Part_Name as "Part Name"
+				Quantity
+				Recorder_Level as "Recorder Level"
+			)
+		}
+	}
+	pages
+	{
+		page Dashboard
+		{
+			displayname = "Dashboard"
+			Content="<zml    \t\t\n\t\t\n\t\t\n\t\t\n\t\t\n>\n\t<layout>\n\t<row>\n\t<column\n   \t\t width=\"100%\"\n   \t>\n\t<chart \n\telementName=\"Chart\"\n\n\ttype = 'Pie'\n\tbgColor = '#FFFFFF'\n\ttheme = 'theme1'\n\tlegendPos = 'center.top'\n\tappLinkName = 'thisapp'\n\tformLinkName = 'Service_Request'\n\txfield = 'Service_Status'\n\tyfields = 'count:ID'\n\/>\n\n<\/column>\n<\/row><row>\n\t<column\n   \t\t width=\"100%\"\n   \t>\n\t<report \n\telementName=\"Report\"\n\n\t\tappLinkName = 'thisapp'\n\t\tlinkName = 'Vehicle_Registration_Report'\n\t\n\t\tiszreport = 'false'\n\theightType = 'auto'\n\theightValue = '700'\n\n\/>\n<\/column>\n<\/row>\n<\/layout>\n<\/zml>"
+		}
+	}
+
+
+		workflow
+		{
+		form
+		{
+			Set_Default_date as "Set Default date"
+			{
+				type =  form
+				form = Service_Request
+				record event = on add
+
+				on load
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											input.Request_Date = zoho.currentdate;
+						)
+					}
+				}
+
+			}
+			Auto_Calculate_Next_Date as "Auto Calculate Next Date"
+			{
+				type =  form
+				form = Maintenance_Log
+				record event = on add or edit
+
+				on user input of Maintenance_Date
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											if(input.Maintenance_Date != null)
+										{
+											input.Next_Due_Date = input.Maintenance_Date.addDay(1);
+										}
+						)
+					}
+				}
+
+			}
+			Notify_Technician as "Notify_Technician"
+			{
+				type =  form
+				form = Service_Request
+				record event = on add or edit
+
+				on success
+				{
+					actions 
+					{
+						sendmail
+						(
+							from : "zoho.loginuserid"
+							to : "zoho.loginuserid"
+							subject : "New Service Request Assigned"
+							message : "<div>Hello ${input.Assigned_Technician}, <br></div><div><br></div><div>A new service request has been assigned to you:<br></div><div>Vehicle: ${input.Vehicle}<br></div><div>Issue: ${input.Complaint_Description}<br></div><div>Date: ${input.Request_Date}<br></div><div><br></div>"
+						)
+					}
+				}
+
+			}
+		}
+
+
+
+
+
+
+	}
+	share_settings
+	{
+			"Read"
+			{
+				name = "Read"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have read permission for all components\n"
+			}
+			"Write"
+			{
+				name = "Write"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have write permission for all components\n"
+			}
+			"Developer"
+			{
+				name = "Developer"
+				type = Developer
+				permissions = {Chat:false, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "Developer Profile\n"
+			}
+			"Administrator"
+			{
+				name = "Administrator"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have all the permissions.\n"
+			}
+			"Customer"
+			{
+				name = "Customer"
+				type = Customer_Portal
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This is the default profile having only add and view permission.\n"
+			}
+			roles
+			{
+				"CEO"
+				{
+					description = "User belonging to this role can access data of all other users."
+				}
+			}
+	}
+
+
+	web
+	{
+		forms
+		{
+			form Inventory
+			{
+				label placement = left
+			}
+			form Maintenance_Log
+			{
+				label placement = left
+			}
+			form Service_Request
+			{
+				label placement = left
+			}
+			form Vehicle_Registration
+			{
+				label placement = left
+			}
+		}
+		reports
+		{
+			report Vehicle_Registration_Report
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = -1
+						datablock1
+						(
+							layout type = -1
+							fields
+							(
+								Name
+								Email
+								Phone_Number as "Phone"
+								EV_Model as "EV Model"
+								Battery_Type as "Battery Type"
+								Registration_number as "Registration number"
+								Purchase_Date as "Purchase Date"
+							)
+						)
+					)
+					menu
+    				(
+    	 				header
+    	 				(
+    		 				Edit 
+    		 				Duplicate 
+    		 				Delete 
+    	 				)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+    				)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+		 				type = 1
+						datablock1
+						(
+							layout type = -2
+							fields
+							(
+								Name
+								Email
+								Phone_Number as "Phone"
+								EV_Model as "EV Model"
+								Battery_Type as "Battery Type"
+								Registration_number as "Registration number"
+								Purchase_Date as "Purchase Date"
+							)
+						)
+					)
+					menu
+    				(
+    	 				header
+    	 				(
+    		 				Edit 
+    		 				Duplicate 
+    		 				Delete 
+    	 				)
+    				)
+				)
+			}
+			report Service_Request_Report
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = -1
+						datablock1
+						(
+							layout type = -1
+							fields
+							(
+								Vehicle_Registration
+								Complaint_Description as "Complaint Description"
+								Service_Status as "Service Status"
+								Request_Date as "Request Date"
+								Assigned_Technician as "Assigned Technician"
+							)
+						)
+					)
+					menu
+    				(
+    	 				header
+    	 				(
+    		 				Edit 
+    		 				Duplicate 
+    		 				Delete 
+    	 				)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+    				)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+		 				type = 1
+						datablock1
+						(
+							layout type = -2
+							fields
+							(
+								Vehicle_Registration
+								Complaint_Description as "Complaint Description"
+								Service_Status as "Service Status"
+								Request_Date as "Request Date"
+								Assigned_Technician as "Assigned Technician"
+							)
+						)
+					)
+					menu
+    				(
+    	 				header
+    	 				(
+    		 				Edit 
+    		 				Duplicate 
+    		 				Delete 
+    	 				)
+    				)
+				)
+			}
+			report Maintenance_Log_Report
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = -1
+						datablock1
+						(
+							layout type = -1
+							fields
+							(
+								Vehicle_Registration
+								Maintenance_Date as "Maintenance Date"
+								Notes
+								Next_Due_Date as "Next Due Date"
+							)
+						)
+					)
+					menu
+    				(
+    	 				header
+    	 				(
+    		 				Edit 
+    		 				Duplicate 
+    		 				Delete 
+    	 				)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+    				)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+		 				type = 1
+						datablock1
+						(
+							layout type = -2
+							fields
+							(
+								Vehicle_Registration
+								Maintenance_Date as "Maintenance Date"
+								Notes
+								Next_Due_Date as "Next Due Date"
+							)
+						)
+					)
+					menu
+    				(
+    	 				header
+    	 				(
+    		 				Edit 
+    		 				Duplicate 
+    		 				Delete 
+    	 				)
+    				)
+				)
+			}
+			report All_Inventories
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = -1
+						datablock1
+						(
+							layout type = -1
+							fields
+							(
+								Part_Name as "Part Name"
+								Quantity
+								Recorder_Level as "Recorder Level"
+							)
+						)
+					)
+					menu
+    				(
+    	 				header
+    	 				(
+    		 				Edit 
+    		 				Duplicate 
+    		 				Delete 
+    	 				)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+    					)
+    				)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Delete   	   
+							Duplicate   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+		 				type = 1
+						datablock1
+						(
+							layout type = -2
+							fields
+							(
+								Part_Name as "Part Name"
+								Quantity
+								Recorder_Level as "Recorder Level"
+							)
+						)
+					)
+					menu
+    				(
+    	 				header
+    	 				(
+    		 				Edit 
+    		 				Duplicate 
+    		 				Delete 
+    	 				)
+    				)
+				)
+			}
+		}
+		menu
+		{
+			space Space
+			{
+				displayname = "Space"
+				icon = "objects-spaceship"
+
+				section Vehicle_Registration
+				{
+					displayname = "Vehicle_Registration"
+					icon = "tech-desktop"
+					form  Vehicle_Registration
+					{
+						icon = "tech-desktop"
+					}
+					report Vehicle_Registration_Report
+					{
+						icon = "tech-desktop"
+					}
+				}
+				section App_Preferences
+				{
+					displayname = "App Preferences"
+					icon = "design-app"
+					systemcomponent
+					{
+						type = localization
+						displayname = "Language Selection"
+						icon = "education-language"
+					}
+					systemcomponent
+					{
+						type = connection
+						displayname = "Connection"
+						icon = "tech-2-connection"
+					}
+				}
+				section Approvals
+				{
+					displayname = "Approvals"
+					icon = "ui-2-hourglass"
+					systemcomponent
+					{
+						type = approval
+						approval status = pending
+						displayname = "Pending Tasks"
+						icon = "ui-2-hourglass"
+					}
+					systemcomponent
+					{
+						type = approval
+						approval status = completed
+						displayname = "Completed Tasks"
+						icon = "design-todo"
+					}
+				}
+				section SharedAnalytics_Section
+				{
+					type = shared_user_report_section
+					displayname = "Reports"
+					icon = "business-chart-bar-33"
+				}
+				section Service_Request
+				{
+					displayname = "Service_Request"
+					icon = "tech-desktop"
+					form  Service_Request
+					{
+						icon = "tech-desktop"
+					}
+					report Service_Request_Report
+					{
+						icon = "tech-desktop"
+					}
+				}
+				section Maintenance_Log
+				{
+					displayname = "Maintenance_Log"
+					icon = "tech-desktop"
+					form  Maintenance_Log
+					{
+						icon = "tech-desktop"
+					}
+					report Maintenance_Log_Report
+					{
+						icon = "tech-desktop"
+					}
+				}
+				section Inventories
+				{
+					displayname = "Inventories"
+					icon = "shopping-stock"
+					form  Inventory
+					{
+						icon = "shopping-stock"
+					}
+					report All_Inventories
+					{
+						icon = "tech-desktop"
+					}
+				}
+				section Dashboard
+				{
+					displayname = "Dashboard"
+					icon = "ui-1-dashboard-half"
+					page Dashboard
+					{
+						icon = "ui-1-dashboard-half"
+					}
+				}
+			}
+			preference
+			{
+				icon
+				{
+					style = outline
+				}
+			}
+		}
+		customize
+		{
+			new theme = 11
+			font = "lato"
+			color options
+			{
+				color = blue
+			}
+			logo
+			{
+				preference = "none"
+				placement = "left"
+			}
+		}
+	}
+	phone
+	{
+		forms
+		{
+			form Inventory
+			{
+				label placement = auto
+			}
+			form Maintenance_Log
+			{
+				label placement = auto
+			}
+			form Service_Request
+			{
+				label placement = auto
+			}
+			form Vehicle_Registration
+			{
+				label placement = auto
+			}
+		}
+		customize
+		{
+			layout = slidingpane
+			font = "default"
+			style = "3"
+			color options
+			{
+				color = yellow
+			}
+			logo
+			{
+				preference = "none"
+			}
+		}
+	}
+	tablet
+	{
+		forms
+		{
+			form Inventory
+			{
+				label placement = auto
+			}
+			form Maintenance_Log
+			{
+				label placement = auto
+			}
+			form Service_Request
+			{
+				label placement = auto
+			}
+			form Vehicle_Registration
+			{
+				label placement = auto
+			}
+		}
+		customize
+		{
+			layout = slidingpane
+			font = "default"
+			style = "3"
+			color options
+			{
+				color = yellow
+			}
+			logo
+			{
+				preference = "none"
+			}
+		}
+	}
+	translation
+{
+{"Language_Settings":{"LANGAGUE_WITH_LOGIN":"browser"}}
+}
+}
