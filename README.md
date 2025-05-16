@@ -1,4 +1,6 @@
 # EV_Service_Tracker
+![image](https://github.com/user-attachments/assets/18f1ed46-5834-4cfd-bae4-d41290ac502d)
+
 
 A comprehensive **Electric Vehicle (EV) Service & Maintenance Tracker** application built using **Zoho Creator** and **Deluge scripting**. This app helps EV owners and service centers manage vehicle registrations, service requests, and service history efficiently with automated workflows and dashboards.
 
@@ -62,44 +64,11 @@ A comprehensive **Electric Vehicle (EV) Service & Maintenance Tracker** applicat
 5. Configure user permissions as needed.
 6. Test workflows with sample data.
 
----
 
-## Sample Data
 
-You can use the sample data included in the `sample_data.csv` files (if available) to quickly populate the forms and test the app functionalities.
-
----
-
-## Screenshots
-
-![Dashboard](screenshots/dashboard.png)  
-*EV Service Tracker Dashboard with service status pie chart*
-
-![Service Request Form](screenshots/service_request_form.png)  
-*Service Request creation form*
-
----
-
-## Author
-
-**Your Name**  
-Email: your.email@example.com  
-LinkedIn: [linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile)  
-GitHub: [github.com/yourusername](https://github.com/yourusername)
-
----
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
 
 ## Acknowledgments
 
 - Zoho Creator Documentation: https://www.zoho.com/creator/help/  
 - Deluge Script Guide: https://www.zoho.com/deluge/help/
 
----
-
-If you want me to generate the actual Deluge code or more detailed instructions for any section, let me know!
